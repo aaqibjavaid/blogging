@@ -7,6 +7,27 @@ const contentDirectory = path.join(
   "src/content"
 );
 
+export function getPost(category, slug) {
+  const filePath = path.join(
+    contentDirectory,
+    category,
+    `${slug}.mdx`
+  );
+
+  const source = fs.readFileSync(
+    filePath,
+    "utf8"
+  );
+
+  const { data, content } =
+    matter(source);
+
+  return {
+    frontmatter: data,
+    content,
+  };
+}
+
 export function getAllPosts() {
   const categories =
     fs.readdirSync(contentDirectory);
@@ -23,42 +44,24 @@ export function getAllPosts() {
       fs.readdirSync(categoryPath);
 
     files.forEach((file) => {
-      const filePath = path.join(
-        categoryPath,
-        file
+      const source = fs.readFileSync(
+        path.join(categoryPath, file),
+        "utf8"
       );
 
-      const source =
-        fs.readFileSync(filePath, "utf8");
-
-      const { data } =
-        matter(source);
+      const { data } = matter(source);
 
       posts.push({
-        ...data,
         slug: file.replace(".mdx", ""),
+        category,
+        ...data,
       });
     });
   });
 
-  return posts;
-}
-
-export function getPost(category, slug) {
-  const filePath = path.join(
-    contentDirectory,
-    category,
-    `${slug}.mdx`
+  return posts.sort(
+    (a, b) =>
+      new Date(b.date) -
+      new Date(a.date)
   );
-
-  const source =
-    fs.readFileSync(filePath, "utf8");
-
-  const { data, content } =
-    matter(source);
-
-  return {
-    frontmatter: data,
-    content,
-  };
 }

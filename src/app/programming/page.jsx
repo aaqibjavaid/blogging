@@ -1,12 +1,15 @@
-import { posts } from "../../data/posts.js";
+
 import PostCard from "../../components/PostCard";
 import Pagination from "../../components/Pagination";
+import { getAllPosts } from "../../lib/posts";
 
 const POSTS_PER_PAGE = 6;
 
 export default function ProgrammingPage({
   searchParams,
 }) {
+
+const posts = getAllPosts();
   const currentPage = Number(
     searchParams?.page || 1
   );

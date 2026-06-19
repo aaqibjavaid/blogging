@@ -5,25 +5,61 @@ import ArticleHeader from "../../../../components/ArticleHeader";
 import ArticleContent from "../../../../components/ArticleContent";
 import RelatedArticles from "../../../../components/RelatedArticles";
 
-export default async function BlogPost({
-  params,
-}) {
-  const { category, slug } =
-    await params;
+// SEO Metadata
+export async function generateMetadata({ params }) {
+  const { category, slug } = await params;
+  const fallbackImage = "/images/default-blog.png";
+
+  try {
+    const post = getPost(category, slug);
+
+    return {
+      title: `${post.frontmatter.title} | DevWithAI`,
+      description:
+        post.frontmatter.description ||
+        "AI and Programming articles on DevWithAI",
+
+      alternates: {
+        canonical: `https://devwithai.blog/blog/${category}/${slug}`,
+      },
+
+      openGraph: {
+        title: post.frontmatter.title,
+        description: post.frontmatter.description,
+        images: post.frontmatter.image
+          ? [post.frontmatter.image]
+          : [fallbackImage],
+        type: "article",
+      },
+
+      twitter: {
+        card: "summary_large_image",
+        title: post.frontmatter.title,
+        description: post.frontmatter.description,
+        images: post.frontmatter.image
+          ? [post.frontmatter.image]
+          : [fallbackImage],
+      },
+    };
+  } catch {
+    return {
+      title: "Article Not Found",
+    };
+  }
+}
+
+export default async function BlogPost({ params }) {
+  const { category, slug } = await params;
 
   let post;
 
   try {
-    post = getPost(
-      category,
-      slug
-    );
+    post = getPost(category, slug);
   } catch {
     notFound();
   }
 
-  const allPosts =
-    getAllPosts();
+  const allPosts = getAllPosts();
 
   const currentPost = {
     ...post.frontmatter,
@@ -33,13 +69,9 @@ export default async function BlogPost({
 
   return (
     <article className="max-w-4xl mx-auto px-6 py-24">
-      <ArticleHeader
-        post={currentPost}
-      />
+      <ArticleHeader post={currentPost} />
 
-      <ArticleContent
-        content={post.content}
-      />
+      <ArticleContent content={post.content} />
 
       <RelatedArticles
         currentPost={currentPost}

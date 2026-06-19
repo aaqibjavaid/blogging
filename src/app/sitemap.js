@@ -1,6 +1,8 @@
-import { posts } from "../data/posts.js";
+
+import { getAllPosts } from "../lib/posts";
 
 export default function sitemap() {
+const posts = getAllPosts();
   const baseUrl =
     "https://devwithai.blog";
 

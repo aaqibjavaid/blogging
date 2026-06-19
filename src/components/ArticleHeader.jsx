@@ -1,5 +1,8 @@
+import Image from "next/image";
+import SmartImage from "./SmartImage";
 export default function ArticleHeader({ post }) {
   if (!post) return null;
+  const fallbackImage = "/images/default-blog.png";
 
   return (
     <div className="mb-16">
@@ -17,9 +20,17 @@ export default function ArticleHeader({ post }) {
         <span>{post.readingTime}</span>
       </div>
 
-      <p className="text-xl text-slate-1000 mt-8 leading-8">
-        {post.excerpt}
-      </p>
+      <div className="mt-10">
+        <SmartImage
+          src={post.image}
+          alt={post.title}
+          width={1200}
+          height={630}
+          className="w-full rounded-3xl"
+        />
+      </div>
+
+      <p className="text-xl text-slate-1000 mt-8 leading-8">{post.excerpt}</p>
     </div>
   );
 }
