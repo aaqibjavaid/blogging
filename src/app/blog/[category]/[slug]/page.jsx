@@ -1,25 +1,50 @@
 import { notFound } from "next/navigation";
-import { posts } from "../../../../data/posts.js";
-import ArticleHeader from "../../../../components/ArticleHeader.jsx";
-import ArticleContent from "../../../../components/ArticleContent.jsx";
-import RelatedArticles from "../../../../components/RelatedArticles.jsx";
+import { getPost, getAllPosts } from "../../../../lib/posts.js";
 
-export default async function BlogPost({ params }) {
-  const { category, slug } = await params;
+import ArticleHeader from "../../../../components/ArticleHeader";
+import ArticleContent from "../../../../components/ArticleContent";
+import RelatedArticles from "../../../../components/RelatedArticles";
 
-  const post = posts.find(
-    (post) => post.category === category && post.slug === slug,
-  );
+export default async function BlogPost({
+  params,
+}) {
+  const { category, slug } =
+    await params;
 
-  if (!post) {
+  let post;
+
+  try {
+    post = getPost(
+      category,
+      slug
+    );
+  } catch {
     notFound();
   }
 
+  const allPosts =
+    getAllPosts();
+
+  const currentPost = {
+    ...post.frontmatter,
+    slug,
+    category,
+  };
+
   return (
     <article className="max-w-4xl mx-auto px-6 py-24">
-      <ArticleHeader post={post} />
-      <ArticleContent content={post.content} />
-      <RelatedArticles currentPost={post} posts={posts} />
+      <ArticleHeader
+        post={currentPost}
+      />
+
+      <ArticleContent
+        content={post.content}
+      />
+
+      <RelatedArticles
+        currentPost={currentPost}
+        posts={allPosts}
+      />
     </article>
   );
 }

@@ -20,16 +20,11 @@ export default function Footer() {
 
           {/* Categories */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">
-              Categories
-            </h3>
+            <h3 className="font-semibold text-lg mb-4">Categories</h3>
 
             <ul className="space-y-3 text-slate-400">
               <li>
-                <Link
-                  href="/ai"
-                  className="hover:text-blue-400 transition"
-                >
+                <Link href="/ai" className="hover:text-blue-400 transition">
                   AI
                 </Link>
               </li>
@@ -56,11 +51,11 @@ export default function Footer() {
 
           {/* Socials */}
           {/* <div> */}
-            {/* <h3 className="font-semibold text-lg mb-4">
+          {/* <h3 className="font-semibold text-lg mb-4">
               Connect
             </h3> */}
 
-            {/* <div className="flex gap-4">
+          {/* <div className="flex gap-4">
               <a
                 href="https://github.com/yourusername"
                 target="_blank"
@@ -98,26 +93,11 @@ export default function Footer() {
           </p>
 
           <div className="flex gap-6 text-sm text-slate-400">
-            <Link
-              href="/about"
-              className="hover:text-blue-400 transition"
-            >
-              About
-            </Link>
-
-            <Link
-              href="/contact"
-              className="hover:text-blue-400 transition"
-            >
-              Contact
-            </Link>
-
-            <Link
-              href="/privacy-policy"
-              className="hover:text-blue-400 transition"
-            >
-              Privacy Policy
-            </Link>
+            <Link href="/about">About</Link>
+            <Link href="/contact">Contact</Link>
+            <Link href="/privacy-policy">Privacy Policy</Link>
+            <Link href="/terms-&-conditions">Terms</Link>
+            <Link href="/disclaimer">Disclaimer</Link>
           </div>
         </div>
       </div>

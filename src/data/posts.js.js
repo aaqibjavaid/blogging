@@ -1,150 +1,299 @@
 export const posts = [
-  {
-    slug: "best-ai-tools-for-developers",
-    title: "Best AI Tools for Developers in 2026",
-    excerpt:
-      "Discover the most useful AI tools that can improve coding productivity.",
-    category: "ai",
-    date: "2026-06-15",
-    readingTime: "5 min read",
-    featured: true,
-    image: "/images/ai-tools.jpg",
-    content: `
-# Introduction
+{
+slug: "best-ai-tools-for-developers-2026",
+title: "Best AI Tools for Developers in 2026",
+excerpt: "Discover the most useful AI tools helping developers code faster, debug efficiently, and ship products quicker in 2026.",
+category: "ai",
+date: "2026-06-18",
+readingTime: "6 min read",
+featured: true,
+image: "/images/ai-tools.jpg",
+content: `
 
-React performance is critical for modern web applications.
+# Best AI Tools for Developers in 2026
 
-# React.memo
+Artificial Intelligence has become a core part of modern software development. Developers now use AI tools to generate code, debug applications, write documentation, and automate repetitive tasks.
+
+## 1. ChatGPT
+
+ChatGPT remains one of the most versatile AI assistants for developers. It can explain code, generate functions, create documentation, and assist with problem-solving.
+
+### Benefits
+
+* Fast code generation
+* Debugging assistance
+* Documentation writing
+* Learning new technologies
+
+## 2. Cursor
+
+Cursor is an AI-powered code editor designed specifically for developers.
+
+### Benefits
+
+* Context-aware coding
+* Codebase understanding
+* AI chat integrated into the editor
+* Refactoring assistance
+
+## 3. GitHub Copilot
+
+GitHub Copilot continues to be a popular choice for developers looking for intelligent code suggestions.
+
+### Benefits
+
+* Auto-complete code
+* Faster development
+* Supports multiple languages
+
+## 4. Claude
+
+Claude excels at handling large codebases and providing detailed explanations.
+
+### Benefits
+
+* Long context windows
+* Better reasoning
+* Great for architecture discussions
+
+## Conclusion
+
+AI tools are becoming essential for developers. Choosing the right combination can significantly improve productivity and reduce development time.
+`
+},
+
+{
+slug: "cursor-vs-github-copilot",
+title: "Cursor vs GitHub Copilot: Which Is Better?",
+excerpt: "A detailed comparison between Cursor and GitHub Copilot for modern software development.",
+category: "ai",
+date: "2026-06-18",
+readingTime: "7 min read",
+featured: true,
+image: "/images/cursor-copilot.jpg",
+content: `
+
+# Cursor vs GitHub Copilot
+
+AI coding assistants have transformed software development. Two leading options are Cursor and GitHub Copilot.
+
+## Ease of Use
+
+GitHub Copilot integrates seamlessly into popular IDEs and is easy to start using.
+
+Cursor offers a dedicated AI-first development experience.
+
+## Code Understanding
+
+Cursor provides deeper context awareness and understands larger portions of your codebase.
+
+GitHub Copilot focuses primarily on inline code completion.
+
+## Productivity
+
+Both tools increase productivity significantly.
+
+### Cursor Advantages
+
+* Better codebase awareness
+* Built-in AI chat
+* Refactoring assistance
+
+### Copilot Advantages
+
+* Mature ecosystem
+* Easy integration
+* Strong language support
+
+## Pricing
+
+Both products offer affordable plans suitable for professional developers.
+
+## Final Verdict
+
+Choose Cursor if you want an AI-first development environment.
+
+Choose GitHub Copilot if you want a lightweight coding assistant integrated into your existing workflow.
+`
+},
+
+{
+slug: "react-performance-optimization-guide",
+title: "React Performance Optimization Guide",
+excerpt: "Learn practical techniques to make React applications faster and more responsive.",
+category: "programming",
+date: "2026-06-18",
+readingTime: "8 min read",
+featured: true,
+image: "/images/react-performance.jpg",
+content: `
+
+# React Performance Optimization Guide
+
+Performance is crucial for modern React applications.
+
+## React.memo
 
 React.memo prevents unnecessary component re-renders.
 
-# useMemo
+### Example
+
+Use React.memo when components receive identical props frequently.
+
+## useMemo
 
 useMemo caches expensive calculations.
 
-# useCallback
+### Benefits
 
-useCallback prevents function recreation.
+* Reduces CPU usage
+* Improves rendering speed
+* Prevents repeated calculations
 
-# Code Splitting
+## useCallback
 
-Load JavaScript only when needed.
+useCallback memoizes functions.
 
-# Conclusion
+### When to Use
 
-Applying these techniques can significantly improve user experience.
-`,
-  },
+Use it when passing callbacks to child components.
 
-  {
-    slug: "cursor-vs-github-copilot",
-    title: "Cursor vs GitHub Copilot",
-    excerpt:
-      "A detailed comparison of the two most popular AI coding assistants.",
-    category: "ai",
-    date: "2026-06-14",
-    readingTime: "5 min read",
-    featured: true,
-    image: "/images/cursor-copilot.jpg",
-    content: `
-# Introduction
+## Code Splitting
 
-React performance is critical for modern web applications.
+Load only the code required for a page.
 
-# React.memo
+### Tools
 
-React.memo prevents unnecessary component re-renders.
+* React.lazy
+* Suspense
+* Dynamic imports
 
-# useMemo
+## Lazy Loading
 
-useMemo caches expensive calculations.
+Load components and images only when needed.
 
-# useCallback
+## Conclusion
 
-useCallback prevents function recreation.
+Combining these optimization techniques can significantly improve user experience and application performance.
+`
+},
 
-# Code Splitting
+{
+slug: "build-ai-chatbot-with-nextjs",
+title: "Build an AI Chatbot with Next.js",
+excerpt: "Learn how to create an AI-powered chatbot using Next.js and OpenAI APIs.",
+category: "ai-programming",
+date: "2026-06-18",
+readingTime: "9 min read",
+featured: true,
+image: "/images/ai-chatbot.jpg",
+content: `
 
-Load JavaScript only when needed.
+# Build an AI Chatbot with Next.js
 
-# Conclusion
+AI chatbots are one of the most popular applications of Large Language Models.
 
-Applying these techniques can significantly improve user experience.
-`,
-  },
+## Project Setup
 
-  {
-    slug: "react-performance-optimization",
-    title: "React Performance Optimization Guide",
-    excerpt:
-      "Learn practical techniques to improve React application performance.",
-    category: "programming",
-    date: "2026-06-13",
-    readingTime: "5 min read",
-    featured: true,
-    image: "/images/react-performance.jpg",
-    content: `
-# Introduction
+Create a Next.js project:
 
-React performance is critical for modern web applications.
+npm create next-app@latest
 
-# React.memo
+Install required dependencies.
 
-React.memo prevents unnecessary component re-renders.
+## Create API Route
 
-# useMemo
+Use Next.js API routes to communicate with OpenAI.
 
-useMemo caches expensive calculations.
+## Create Chat Interface
 
-# useCallback
+Build a clean user interface with:
 
-useCallback prevents function recreation.
+* Message list
+* Input field
+* Send button
 
-# Code Splitting
+## Connect OpenAI
 
-Load JavaScript only when needed.
+Send user messages to OpenAI and display responses.
 
-# Conclusion
+## Error Handling
 
-Applying these techniques can significantly improve user experience.
-`,
-  },
+Always handle:
 
-  {
-    slug: "build-ai-chatbot-with-nextjs",
-    title: "Build AI Chatbot with Next.js",
-    excerpt:
-      "Create an AI-powered chatbot using Next.js and OpenAI APIs.",
-    category: "ai-programming",
-    date: "2026-06-12",
-    readingTime: "5 min read",
-    featured: true,
-    image: "/images/ai-chatbot.jpg",
-    content: `
-# Introduction
+* API failures
+* Rate limits
+* Empty responses
 
-React performance is critical for modern web applications.
+## Deployment
 
-# React.memo
+Deploy your chatbot using Vercel for fast global delivery.
 
-React.memo prevents unnecessary component re-renders.
+## Conclusion
 
-# useMemo
+Combining Next.js with AI APIs allows developers to build powerful applications quickly.
+`
+},
 
-useMemo caches expensive calculations.
+{
+slug: "nextjs-seo-complete-guide",
+title: "Next.js SEO Complete Guide",
+excerpt: "Everything you need to know about optimizing a Next.js website for search engines.",
+category: "programming",
+date: "2026-06-18",
+readingTime: "10 min read",
+featured: true,
+image: "/images/nextjs-seo.jpg",
+content: `
 
-# useCallback
+# Next.js SEO Complete Guide
 
-useCallback prevents function recreation.
+SEO is critical for driving organic traffic.
 
-# Code Splitting
+## Metadata
 
-Load JavaScript only when needed.
+Always provide:
 
-# Conclusion
+* Title
+* Description
+* Open Graph tags
+* Twitter cards
 
-Applying these techniques can significantly improve user experience.
+## Sitemap
 
-`,
-  },
+Generate a sitemap to help search engines discover content.
+
+## Robots.txt
+
+Provide crawling instructions for search engines.
+
+## Internal Linking
+
+Link related articles together.
+
+### Benefits
+
+* Better indexing
+* Improved user engagement
+* Increased page views
+
+## Performance
+
+Google values fast-loading websites.
+
+### Focus Areas
+
+* Image optimization
+* Code splitting
+* Server-side rendering
+
+## Content Quality
+
+Publishing valuable content consistently remains the most important SEO factor.
+
+## Conclusion
+
+A combination of technical SEO and high-quality content is the foundation of long-term search traffic growth.
+`
+}
 ];
