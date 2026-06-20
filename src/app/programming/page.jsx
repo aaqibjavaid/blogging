@@ -3,16 +3,35 @@ import PostCard from "../../components/PostCard";
 import Pagination from "../../components/Pagination";
 import { getAllPosts } from "../../lib/posts";
 
+export const metadata = {
+  title: "Programming Articles",
+  description:
+    "React, JavaScript, Next.js, and modern frontend development tutorials for developers of all levels.",
+  alternates: { canonical: "/programming" },
+  openGraph: {
+    title: "Programming Articles | DevWithAI",
+    description:
+      "React, JavaScript, Next.js, and modern frontend development tutorials for developers of all levels.",
+    url: "https://devwithai.blog/programming",
+    images: [{ url: "/images/default-blog.png" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Programming Articles | DevWithAI",
+    description:
+      "React, JavaScript, Next.js, and modern frontend development tutorials for developers of all levels.",
+    images: ["/images/default-blog.png"],
+  },
+};
+
 const POSTS_PER_PAGE = 6;
 
-export default function ProgrammingPage({
+export default async function ProgrammingPage({
   searchParams,
 }) {
-
-const posts = getAllPosts();
-  const currentPage = Number(
-    searchParams?.page || 1
-  );
+  const { page } = await searchParams;
+  const posts = getAllPosts();
+  const currentPage = Number(page || 1);
 
   const programmingPosts = posts.filter(
     (post) =>

@@ -5,6 +5,14 @@ import ArticleHeader from "../../../../components/ArticleHeader";
 import ArticleContent from "../../../../components/ArticleContent";
 import RelatedArticles from "../../../../components/RelatedArticles";
 
+export function generateStaticParams() {
+  const posts = getAllPosts();
+  return posts.map((post) => ({
+    category: post.category,
+    slug: post.slug,
+  }));
+}
+
 // SEO Metadata
 export async function generateMetadata({ params }) {
   const { category, slug } = await params;
@@ -14,7 +22,7 @@ export async function generateMetadata({ params }) {
     const post = getPost(category, slug);
 
     return {
-      title: `${post.frontmatter.title} | DevWithAI`,
+      title: post.frontmatter.title,
       description:
         post.frontmatter.description ||
         "AI and Programming articles on DevWithAI",

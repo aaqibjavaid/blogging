@@ -12,7 +12,7 @@ export default function ArticleContent({ content }) {
         mt-12
 
         prose-headings:font-bold
-        prose-headings:text-slate-900
+        prose-headings:text-white
 
         prose-p:text-slate-700
         prose-p:leading-8

@@ -1,5 +1,14 @@
 export const metadata = {
   title: "Terms & Conditions",
+  description:
+    "Read the DevWithAI terms and conditions governing your use of this website and its content.",
+  alternates: { canonical: "/terms-&-conditions" },
+  openGraph: {
+    title: "Terms & Conditions | DevWithAI",
+    description:
+      "Read the DevWithAI terms and conditions governing your use of this website and its content.",
+    url: "https://devwithai.blog/terms-&-conditions",
+  },
 };
 
 export default function TermsPage() {
@@ -9,7 +18,7 @@ export default function TermsPage() {
         Terms & Conditions
       </h1>
 
-      <div className="space-y-6 text-slate-1000 leading-8">
+      <div className="space-y-6 text-slate-300 leading-8">
         <p>
           By accessing DevWithAI, you agree to these
           terms and conditions.

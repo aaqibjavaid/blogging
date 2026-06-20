@@ -1,5 +1,14 @@
 export const metadata = {
   title: "Disclaimer",
+  description:
+    "Read the DevWithAI disclaimer. Information on this site is for general informational purposes only.",
+  alternates: { canonical: "/disclaimer" },
+  openGraph: {
+    title: "Disclaimer | DevWithAI",
+    description:
+      "Read the DevWithAI disclaimer. Information on this site is for general informational purposes only.",
+    url: "https://devwithai.blog/disclaimer",
+  },
 };
 
 export default function DisclaimerPage() {
@@ -9,7 +18,7 @@ export default function DisclaimerPage() {
         Disclaimer
       </h1>
 
-      <div className="space-y-6 text-slate-1000 leading-8">
+      <div className="space-y-6 text-slate-300 leading-8">
         <p>
           The information on DevWithAI is published in
           good faith and for general informational

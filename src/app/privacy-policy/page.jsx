@@ -1,5 +1,14 @@
 export const metadata = {
   title: "Privacy Policy",
+  description:
+    "Read the DevWithAI privacy policy to understand how we collect, use, and protect your information.",
+  alternates: { canonical: "/privacy-policy" },
+  openGraph: {
+    title: "Privacy Policy | DevWithAI",
+    description:
+      "Read the DevWithAI privacy policy to understand how we collect, use, and protect your information.",
+    url: "https://devwithai.blog/privacy-policy",
+  },
 };
 
 export default function PrivacyPolicy() {
@@ -9,7 +18,7 @@ export default function PrivacyPolicy() {
         Privacy Policy
       </h1>
 
-      <div className="space-y-6 text-slate-1000 leading-8">
+      <div className="space-y-6 text-slate-300 leading-8">
         <p>
           We respect your privacy and are committed to
           protecting your personal information.

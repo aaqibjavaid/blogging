@@ -1,6 +1,22 @@
 export const metadata = {
   title: "About",
-  description: "Learn more about DevWithAI.",
+  description:
+    "DevWithAI is a blog for developers covering AI tools, React, Next.js, and modern software development workflows.",
+  alternates: { canonical: "/about" },
+  openGraph: {
+    title: "About | DevWithAI",
+    description:
+      "DevWithAI is a blog for developers covering AI tools, React, Next.js, and modern software development workflows.",
+    url: "https://devwithai.blog/about",
+    images: [{ url: "/images/default-blog.png" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About | DevWithAI",
+    description:
+      "DevWithAI is a blog for developers covering AI tools, React, Next.js, and modern software development workflows.",
+    images: ["/images/default-blog.png"],
+  },
 };
 
 export default function AboutPage() {
@@ -10,7 +26,7 @@ export default function AboutPage() {
         About DevWithAI
       </h1>
 
-      <div className="space-y-6 text-slate-1000 leading-8">
+      <div className="space-y-6 text-slate-300 leading-8">
         <p>
           DevWithAI is a technology blog focused on
           Artificial Intelligence, Programming, React,

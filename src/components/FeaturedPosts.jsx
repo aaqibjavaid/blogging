@@ -1,10 +1,9 @@
-
-import { getAllPosts } from "../lib/posts";
 import PostCard from "./PostCard";
 
-export default function FeaturedPosts() {
-  const posts = getAllPosts();
+export default function FeaturedPosts({ posts = [] }) {
   const featuredPosts = posts.filter((post) => post.featured);
+
+  if (!featuredPosts.length) return null;
 
   return (
     <section className="max-w-7xl mx-auto px-6 py-24">

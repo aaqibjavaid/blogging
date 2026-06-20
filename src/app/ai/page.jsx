@@ -3,16 +3,35 @@ import PostCard from "../../components/PostCard";
 import Pagination from "../../components/Pagination";
 import { getAllPosts } from "../../lib/posts";
 
+export const metadata = {
+  title: "AI Articles",
+  description:
+    "Discover the best AI tools, comparisons, prompts, and productivity workflows for developers.",
+  alternates: { canonical: "/ai" },
+  openGraph: {
+    title: "AI Articles | DevWithAI",
+    description:
+      "Discover the best AI tools, comparisons, prompts, and productivity workflows for developers.",
+    url: "https://devwithai.blog/ai",
+    images: [{ url: "/images/default-blog.png" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AI Articles | DevWithAI",
+    description:
+      "Discover the best AI tools, comparisons, prompts, and productivity workflows for developers.",
+    images: ["/images/default-blog.png"],
+  },
+};
+
 const POSTS_PER_PAGE = 6;
 
-export default function AIPage({
+export default async function AIPage({
   searchParams,
 }) {
-
-const posts = getAllPosts();
-  const currentPage = Number(
-    searchParams?.page || 1
-  );
+  const { page } = await searchParams;
+  const posts = getAllPosts();
+  const currentPage = Number(page || 1);
 
   const aiPosts = posts.filter(
     (post) => post.category === "ai"

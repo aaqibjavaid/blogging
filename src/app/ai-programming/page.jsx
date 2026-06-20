@@ -3,16 +3,35 @@ import PostCard from "../../components/PostCard";
 import Pagination from "../../components/Pagination";
 import { getAllPosts } from "../../lib/posts";
 
+export const metadata = {
+  title: "AI + Programming",
+  description:
+    "Learn how to build AI-powered applications and integrate AI into modern developer workflows.",
+  alternates: { canonical: "/ai-programming" },
+  openGraph: {
+    title: "AI + Programming | DevWithAI",
+    description:
+      "Learn how to build AI-powered applications and integrate AI into modern developer workflows.",
+    url: "https://devwithai.blog/ai-programming",
+    images: [{ url: "/images/default-blog.png" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AI + Programming | DevWithAI",
+    description:
+      "Learn how to build AI-powered applications and integrate AI into modern developer workflows.",
+    images: ["/images/default-blog.png"],
+  },
+};
+
 const POSTS_PER_PAGE = 6;
 
-export default function AIProgrammingPage({
+export default async function AIProgrammingPage({
   searchParams,
 }) {
-
-const posts = getAllPosts();
-  const currentPage = Number(
-    searchParams?.page || 1
-  );
+  const { page } = await searchParams;
+  const posts = getAllPosts();
+  const currentPage = Number(page || 1);
 
   const aiProgrammingPosts =
     posts.filter(

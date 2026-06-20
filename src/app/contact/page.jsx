@@ -3,7 +3,23 @@ import { FaLinkedin } from "react-icons/fa";
 
 export const metadata = {
   title: "Contact",
-  description: "Contact DevWithAI",
+  description:
+    "Get in touch with DevWithAI for questions, collaborations, sponsorships, or feedback.",
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "Contact | DevWithAI",
+    description:
+      "Get in touch with DevWithAI for questions, collaborations, sponsorships, or feedback.",
+    url: "https://devwithai.blog/contact",
+    images: [{ url: "/images/default-blog.png" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact | DevWithAI",
+    description:
+      "Get in touch with DevWithAI for questions, collaborations, sponsorships, or feedback.",
+    images: ["/images/default-blog.png"],
+  },
 };
 
 export default function ContactPage() {

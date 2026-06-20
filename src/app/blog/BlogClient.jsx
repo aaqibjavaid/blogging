@@ -35,14 +35,28 @@ const filteredPosts = posts.filter(
         setSearchTerm={setSearchTerm}
       />
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {filteredPosts.map((post) => (
-          <PostCard
-            key={post.slug}
-            post={post}
-          />
-        ))}
-      </div>
+      {filteredPosts.length === 0 ? (
+        <div className="text-center py-24">
+          <p className="text-slate-400 text-lg">
+            No articles found for{" "}
+            <span className="text-white font-medium">
+              &ldquo;{searchTerm}&rdquo;
+            </span>
+          </p>
+          <p className="text-slate-500 mt-2 text-sm">
+            Try a different keyword.
+          </p>
+        </div>
+      ) : (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredPosts.map((post) => (
+            <PostCard
+              key={post.slug}
+              post={post}
+            />
+          ))}
+        </div>
+      )}
     </main>
   );
 }

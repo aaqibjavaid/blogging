@@ -40,6 +40,14 @@ export const metadata = {
     siteName: "DevWithAI",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/images/default-blog.png",
+        width: 800,
+        height: 450,
+        alt: "DevWithAI",
+      },
+    ],
   },
 
   twitter: {
@@ -47,6 +55,7 @@ export const metadata = {
     title: "DevWithAI",
     description:
       "AI tools, programming tutorials and development resources.",
+    images: ["/images/default-blog.png"],
   },
 
   robots: {

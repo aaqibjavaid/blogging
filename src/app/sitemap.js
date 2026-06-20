@@ -1,29 +1,32 @@
-
 import { getAllPosts } from "../lib/posts";
 
+const BASE_URL = "https://devwithai.blog";
+
 export default function sitemap() {
-const posts = getAllPosts();
-  const baseUrl =
-    "https://devwithai.blog";
+  const posts = getAllPosts();
 
-  const articleUrls = posts.map(
-    (post) => ({
-      url: `${baseUrl}/blog/${post.category}/${post.slug}`,
-      lastModified: new Date(),
-    })
-  );
+  const staticPages = [
+    { url: BASE_URL, priority: 1.0 },
+    { url: `${BASE_URL}/blog`, priority: 0.9 },
+    { url: `${BASE_URL}/ai`, priority: 0.9 },
+    { url: `${BASE_URL}/programming`, priority: 0.9 },
+    { url: `${BASE_URL}/ai-programming`, priority: 0.9 },
+    { url: `${BASE_URL}/about`, priority: 0.6 },
+    { url: `${BASE_URL}/contact`, priority: 0.5 },
+    { url: `${BASE_URL}/privacy-policy`, priority: 0.3 },
+    { url: `${BASE_URL}/disclaimer`, priority: 0.3 },
+    { url: `${BASE_URL}/terms-&-conditions`, priority: 0.3 },
+  ].map(({ url, priority }) => ({
+    url,
+    lastModified: new Date(),
+    priority,
+  }));
 
-  return [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-    },
+  const articlePages = posts.map((post) => ({
+    url: `${BASE_URL}/blog/${post.category}/${post.slug}`,
+    lastModified: new Date(post.date),
+    priority: 0.8,
+  }));
 
-    {
-      url: `${baseUrl}/blog`,
-      lastModified: new Date(),
-    },
-
-    ...articleUrls,
-  ];
+  return [...staticPages, ...articlePages];
 }

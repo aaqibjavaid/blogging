@@ -1,17 +1,20 @@
+import { getAllPosts } from "../lib/posts";
 import Hero from "../components/Hero";
-import Categories from "../components/Categories";
 import FeaturedPosts from "../components/FeaturedPosts";
+import LatestArticles from "../components/LatestArticles";
+import Categories from "../components/Categories";
 import WhyDevWithAI from "../components/WhyDevWithAI";
-// import Newsletter from "../components/Newsletter";
 
-export default function Home() {
+export default async function Home() {
+  const posts = getAllPosts();
+
   return (
     <main>
       <Hero />
-      <Categories />
-      <FeaturedPosts />
+      <FeaturedPosts posts={posts} />
+      <LatestArticles posts={posts} />
+      <Categories posts={posts} />
       <WhyDevWithAI />
-      {/* <Newsletter /> */}
     </main>
   );
 }
