@@ -146,7 +146,7 @@ export default function BlogClient({ posts }) {
             {(isSearching || activeCategory !== "all") && (
               <button
                 onClick={() => { handleSearch(""); handleCategory("all"); }}
-                className="text-xs text-slate-500 hover:text-white flex items-center gap-1.5 transition-colors duration-150"
+                className="text-xs text-slate-500 hover:text-purple-400 flex items-center gap-1.5 transition-colors duration-150 cursor-pointer"
               >
                 <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
                   <path d="M2 2l6 6M8 2L2 8" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/>
