@@ -26,16 +26,16 @@ export const metadata = {
 const POSTS_PER_PAGE = 6;
 
 export default async function AIProgrammingPage({ searchParams }) {
-  const { page } = await searchParams;
-  const posts = getAllPosts();
-  const currentPage = Number(page || 1);
-
-  const aiProgPosts = posts.filter((p) => p.category === "ai-programming");
-  const totalPages = Math.ceil(aiProgPosts.length / POSTS_PER_PAGE);
-  const paginatedPosts = aiProgPosts.slice(
-    (currentPage - 1) * POSTS_PER_PAGE,
-    currentPage * POSTS_PER_PAGE
-  );
+   const { page } = await searchParams;
+    const posts = getAllPosts();
+    const currentPage = Number(page || 1);
+  
+    const aiProgPosts = posts.filter((p) => p.category === "ai-programming");
+    const totalPages = Math.ceil(aiProgPosts.length / POSTS_PER_PAGE);
+    const paginatedPosts = aiProgPosts.slice(
+      (currentPage - 1) * POSTS_PER_PAGE,
+      currentPage * POSTS_PER_PAGE
+    );
 
   return (
     <main className="relative overflow-hidden">
