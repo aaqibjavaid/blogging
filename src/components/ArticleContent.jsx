@@ -29,7 +29,7 @@ const mdxComponents = {
     return (
       <h2 id={id} className="group relative flex items-center gap-3 text-2xl sm:text-3xl font-black text-slate-900 mt-14 mb-5 scroll-mt-24" {...props}>
         <span className="absolute -left-4 top-1 bottom-1 w-[3px] rounded-full bg-gradient-to-b from-blue-500 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
-
+        {children}
       </h2>
     );
   },
@@ -39,6 +39,7 @@ const mdxComponents = {
     return (
       <h3 id={id} className="flex items-center gap-2.5 text-xl sm:text-2xl font-black text-slate-900 mt-10 mb-4 scroll-mt-24" {...props}>
         <span className="w-1.5 h-1.5 rounded-full bg-purple-400 flex-shrink-0 mt-0.5" />
+        {children}
       </h3>
     );
   },
