@@ -68,7 +68,7 @@ export default function ArticleHeader({ post }) {
       </div>
 
       {/* ── Title ───────────────────────────────── */}
-      <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-white leading-[1.1] tracking-tight mb-6">
+      <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-slate-900 leading-[1.1] tracking-tight mb-6">
         {post.title}
       </h1>
 

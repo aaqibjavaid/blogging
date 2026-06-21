@@ -15,7 +15,7 @@ export default function Pagination({
           className="
             px-5 py-3
             rounded-xl
-            bg-slate-900
+            bg-slate-100
           "
         >
           Previous
@@ -34,7 +34,7 @@ export default function Pagination({
           className="
             px-5 py-3
             rounded-xl
-            bg-slate-900
+            bg-slate-100
           "
         >
           Next
