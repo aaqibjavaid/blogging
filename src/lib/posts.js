@@ -1,47 +1,36 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import { cache } from "react";
 
 const contentDirectory = path.join(
   process.cwd(),
   "src/content"
 );
 
-export function getPost(category, slug) {
+export const getPost = cache(function getPost(category, slug) {
   const filePath = path.join(
     contentDirectory,
     category,
     `${slug}.mdx`
   );
 
-  const source = fs.readFileSync(
-    filePath,
-    "utf8"
-  );
-
-  const { data, content } =
-    matter(source);
+  const source = fs.readFileSync(filePath, "utf8");
+  const { data, content } = matter(source);
 
   return {
     frontmatter: data,
     content,
   };
-}
+});
 
-export function getAllPosts() {
-  const categories =
-    fs.readdirSync(contentDirectory);
-
+export const getAllPosts = cache(function getAllPosts() {
+  const categories = fs.readdirSync(contentDirectory);
   const posts = [];
 
   categories.forEach((category) => {
-    const categoryPath = path.join(
-      contentDirectory,
-      category
-    );
-
-    const files =
-      fs.readdirSync(categoryPath);
+    const categoryPath = path.join(contentDirectory, category);
+    const files = fs.readdirSync(categoryPath);
 
     files.forEach((file) => {
       const source = fs.readFileSync(
@@ -60,8 +49,6 @@ export function getAllPosts() {
   });
 
   return posts.sort(
-    (a, b) =>
-      new Date(b.date) -
-      new Date(a.date)
+    (a, b) => new Date(b.date) - new Date(a.date)
   );
-}
+});

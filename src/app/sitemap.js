@@ -22,11 +22,13 @@ export default function sitemap() {
     priority,
   }));
 
-  const articlePages = posts.map((post) => ({
-    url: `${BASE_URL}/blog/${post.category}/${post.slug}`,
-    lastModified: new Date(post.date),
-    priority: 0.8,
-  }));
+  const articlePages = posts
+    .filter((post) => post.date && !isNaN(new Date(post.date).getTime()))
+    .map((post) => ({
+      url: `${BASE_URL}/blog/${post.category}/${post.slug}`,
+      lastModified: new Date(post.date),
+      priority: 0.8,
+    }));
 
   return [...staticPages, ...articlePages];
 }

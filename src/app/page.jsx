@@ -10,7 +10,7 @@ export default async function Home() {
 
   return (
     <main>
-      <Hero />
+      <Hero totalPosts={posts.length} />
       <FeaturedPosts posts={posts} />
       <LatestArticles posts={posts} />
       <Categories posts={posts} />
