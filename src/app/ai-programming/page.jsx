@@ -2,6 +2,8 @@ import PostCard from "../../components/PostCard";
 import Pagination from "../../components/Pagination";
 import { getAllPosts } from "../../lib/posts";
 
+const BASE_URL = "https://devwithai.blog";
+
 export const metadata = {
   title: "AI + Programming",
   description:
@@ -11,7 +13,7 @@ export const metadata = {
     title: "AI + Programming | DevWithAI",
     description:
       "Learn how to build AI-powered applications and integrate AI into modern developer workflows.",
-    url: "https://devwithai.blog/ai-programming",
+    url: `${BASE_URL}/ai-programming`,
     images: [{ url: "/images/default-blog.png" }],
   },
   twitter: {
@@ -21,6 +23,30 @@ export const metadata = {
       "Learn how to build AI-powered applications and integrate AI into modern developer workflows.",
     images: ["/images/default-blog.png"],
   },
+};
+
+const collectionSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "AI + Programming | DevWithAI",
+  url: `${BASE_URL}/ai-programming`,
+  description:
+    "Learn how to build AI-powered applications and integrate AI into modern developer workflows.",
+  isPartOf: { "@type": "WebSite", name: "DevWithAI", url: BASE_URL },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: BASE_URL },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "AI + Programming",
+      item: `${BASE_URL}/ai-programming`,
+    },
+  ],
 };
 
 const POSTS_PER_PAGE = 6;
@@ -38,6 +64,15 @@ export default async function AIProgrammingPage({ searchParams }) {
   );
 
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
     <main className="relative overflow-hidden">
 
       {/* ── Hero ────────────────────────────────── */}
@@ -107,5 +142,6 @@ export default async function AIProgrammingPage({ searchParams }) {
       </section>
 
     </main>
+    </>
   );
 }

@@ -2,6 +2,8 @@ import PostCard from "../../components/PostCard";
 import Pagination from "../../components/Pagination";
 import { getAllPosts } from "../../lib/posts";
 
+const BASE_URL = "https://devwithai.blog";
+
 export const metadata = {
   title: "Programming Articles",
   description:
@@ -11,7 +13,7 @@ export const metadata = {
     title: "Programming Articles | DevWithAI",
     description:
       "React, JavaScript, Next.js, and modern frontend development tutorials for developers of all levels.",
-    url: "https://devwithai.blog/programming",
+    url: `${BASE_URL}/programming`,
     images: [{ url: "/images/default-blog.png" }],
   },
   twitter: {
@@ -21,6 +23,30 @@ export const metadata = {
       "React, JavaScript, Next.js, and modern frontend development tutorials for developers of all levels.",
     images: ["/images/default-blog.png"],
   },
+};
+
+const collectionSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Programming Articles | DevWithAI",
+  url: `${BASE_URL}/programming`,
+  description:
+    "React, JavaScript, Next.js, and modern frontend development tutorials for developers of all levels.",
+  isPartOf: { "@type": "WebSite", name: "DevWithAI", url: BASE_URL },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: BASE_URL },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Programming",
+      item: `${BASE_URL}/programming`,
+    },
+  ],
 };
 
 const POSTS_PER_PAGE = 6;
@@ -38,6 +64,15 @@ export default async function ProgrammingPage({ searchParams }) {
   );
 
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
     <main className="relative overflow-hidden">
 
       {/* ── Hero ────────────────────────────────── */}
@@ -107,5 +142,6 @@ export default async function ProgrammingPage({ searchParams }) {
       </section>
 
     </main>
+    </>
   );
 }

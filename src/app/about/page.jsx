@@ -1,3 +1,7 @@
+import Link from "next/link";
+
+const BASE_URL = "https://devwithai.blog";
+
 export const metadata = {
   title: "About",
   description:
@@ -7,7 +11,7 @@ export const metadata = {
     title: "About | DevWithAI",
     description:
       "DevWithAI is a blog for developers covering AI tools, React, Next.js, and modern software development workflows.",
-    url: "https://devwithai.blog/about",
+    url: `${BASE_URL}/about`,
     images: [{ url: "/images/default-blog.png" }],
   },
   twitter: {
@@ -19,7 +23,26 @@ export const metadata = {
   },
 };
 
-import Link from "next/link";
+const aboutPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  name: "About | DevWithAI",
+  url: `${BASE_URL}/about`,
+  description:
+    "DevWithAI is a blog for developers covering AI tools, React, Next.js, and modern software development workflows.",
+  isPartOf: { "@type": "WebSite", name: "DevWithAI", url: BASE_URL },
+};
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Aaqib Javaid",
+  url: `${BASE_URL}/about`,
+  sameAs: [
+    "https://x.com/devwithai",
+    "https://linkedin.com/in/aaqib-javaid",
+  ],
+};
 
 const TOPICS = [
   {
@@ -78,6 +101,15 @@ const STATS = [
 
 export default function AboutPage() {
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutPageSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+      />
     <main className="relative overflow-hidden">
 
       {/* ── Hero ──────────────────────────────────── */}
@@ -212,5 +244,6 @@ export default function AboutPage() {
       </section>
 
     </main>
+    </>
   );
 }

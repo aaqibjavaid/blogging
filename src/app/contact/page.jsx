@@ -1,6 +1,8 @@
 import { MdEmail } from "react-icons/md";
 import { FaLinkedin, FaXTwitter } from "react-icons/fa6";
 
+const BASE_URL = "https://devwithai.blog";
+
 export const metadata = {
   title: "Contact",
   description:
@@ -10,7 +12,7 @@ export const metadata = {
     title: "Contact | DevWithAI",
     description:
       "Get in touch with DevWithAI for questions, collaborations, sponsorships, or feedback.",
-    url: "https://devwithai.blog/contact",
+    url: `${BASE_URL}/contact`,
     images: [{ url: "/images/default-blog.png" }],
   },
   twitter: {
@@ -20,6 +22,16 @@ export const metadata = {
       "Get in touch with DevWithAI for questions, collaborations, sponsorships, or feedback.",
     images: ["/images/default-blog.png"],
   },
+};
+
+const contactPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  name: "Contact | DevWithAI",
+  url: `${BASE_URL}/contact`,
+  description:
+    "Get in touch with DevWithAI for questions, collaborations, sponsorships, or feedback.",
+  isPartOf: { "@type": "WebSite", name: "DevWithAI", url: BASE_URL },
 };
 
 const CHANNELS = [
@@ -73,6 +85,11 @@ const REASONS = [
 
 export default function ContactPage() {
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageSchema) }}
+      />
     <main className="relative overflow-hidden">
 
       {/* ── Hero ────────────────────────────────── */}
@@ -172,5 +189,6 @@ export default function ContactPage() {
       </section>
 
     </main>
+    </>
   );
 }

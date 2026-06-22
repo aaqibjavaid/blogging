@@ -2,6 +2,8 @@ import PostCard from "../../components/PostCard";
 import Pagination from "../../components/Pagination";
 import { getAllPosts } from "../../lib/posts";
 
+const BASE_URL = "https://devwithai.blog";
+
 export const metadata = {
   title: "AI Articles",
   description:
@@ -11,7 +13,7 @@ export const metadata = {
     title: "AI Articles | DevWithAI",
     description:
       "Discover the best AI tools, comparisons, prompts, and productivity workflows for developers.",
-    url: "https://devwithai.blog/ai",
+    url: `${BASE_URL}/ai`,
     images: [{ url: "/images/default-blog.png" }],
   },
   twitter: {
@@ -21,6 +23,25 @@ export const metadata = {
       "Discover the best AI tools, comparisons, prompts, and productivity workflows for developers.",
     images: ["/images/default-blog.png"],
   },
+};
+
+const collectionSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "AI Articles | DevWithAI",
+  url: `${BASE_URL}/ai`,
+  description:
+    "Discover the best AI tools, comparisons, prompts, and productivity workflows for developers.",
+  isPartOf: { "@type": "WebSite", name: "DevWithAI", url: BASE_URL },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: BASE_URL },
+    { "@type": "ListItem", position: 2, name: "AI Tools", item: `${BASE_URL}/ai` },
+  ],
 };
 
 const POSTS_PER_PAGE = 6;
@@ -38,6 +59,15 @@ export default async function AIPage({ searchParams }) {
   );
 
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
     <main className="relative overflow-hidden">
 
       {/* ── Hero ────────────────────────────────── */}
@@ -107,5 +137,6 @@ export default async function AIPage({ searchParams }) {
       </section>
 
     </main>
+    </>
   );
 }
