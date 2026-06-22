@@ -15,7 +15,7 @@ export default function sitemap() {
     "/contact",
     "/privacy-policy",
     "/disclaimer",
-    "/terms-&-conditions",
+    "/terms-and-conditions",
   ];
 
   const staticEntries = staticPages.map((route) => ({

@@ -4,12 +4,12 @@ export const metadata = {
   title: "Terms & Conditions",
   description:
     "Read the DevWithAI terms and conditions governing your use of this website and its content.",
-  alternates: { canonical: "/terms-&-conditions" },
+  alternates: { canonical: "/terms-and-conditions" },
   openGraph: {
     title: "Terms & Conditions | DevWithAI",
     description:
       "Read the DevWithAI terms and conditions governing your use of this website and its content.",
-    url: "https://devwithai.blog/terms-&-conditions",
+    url: "https://devwithai.blog/terms-and-conditions",
   },
 };
 

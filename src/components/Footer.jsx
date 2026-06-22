@@ -12,7 +12,7 @@ const COMPANY = [
   { label: "About",          href: "/about"            },
   { label: "Contact",        href: "/contact"           },
   { label: "Privacy Policy", href: "/privacy-policy"   },
-  { label: "Terms",          href: "/terms-&-conditions"},
+  { label: "Terms",          href: "/terms-and-conditions"},
   { label: "Disclaimer",     href: "/disclaimer"        },
 ];
 

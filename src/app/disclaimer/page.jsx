@@ -139,7 +139,7 @@ export default function DisclaimerPage() {
                 <span className="group-hover:translate-x-0.5 transition-transform duration-200">→</span>
               </Link>
               <Link
-                href="/terms-&-conditions"
+                href="/terms-and-conditions"
                 className="inline-flex items-center justify-center px-8 py-4 rounded-xl border border-white/15 text-slate-300 hover:border-purple-500/50 hover:text-white hover:bg-white/5 font-semibold transition-all duration-200 text-sm"
               >
                 Terms &amp; Conditions
