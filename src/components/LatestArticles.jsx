@@ -25,7 +25,7 @@ export default function LatestArticles({ posts = [] }) {
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/25 text-xs font-bold text-blue-400 uppercase tracking-widest mb-4">
               ✦ Latest
             </div>
-            <h2 className="text-4xl sm:text-5xl font-black text-white leading-tight">
+            <h2 className="text-4xl sm:text-5xl font-black leading-tight">
               Fresh
               <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"> Articles</span>
             </h2>

@@ -81,7 +81,7 @@ export default function Categories({ posts = [] }) {
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/25 text-xs font-bold text-purple-400 uppercase tracking-widest mb-5">
             ◈ Browse
           </div>
-          <h2 className="text-4xl sm:text-5xl font-black text-white leading-tight">
+          <h2 className="text-4xl sm:text-5xl font-black leading-tight">
             Explore
             <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"> Categories</span>
           </h2>
