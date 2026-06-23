@@ -112,7 +112,7 @@ export default function FeaturedPosts({ posts = [] }) {
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/25 text-xs font-bold text-amber-400 uppercase tracking-widest mb-4">
               ★ Featured
             </div>
-            <h2 className="text-4xl sm:text-5xl font-black text-white leading-tight">
+            <h2 className="text-4xl sm:text-5xl font-black leading-tight">
               Must-Read
               <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"> Articles</span>
             </h2>
