@@ -10,6 +10,14 @@ export const metadata = {
     description:
       "Read the DevWithAI privacy policy to understand how we collect, use, and protect your information.",
     url: "https://devwithai.blog/privacy-policy",
+    images: [{ url: "https://devwithai.blog/images/default-blog.png", width: 1200, height: 630, alt: "DevWithAI" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Privacy Policy | DevWithAI",
+    description:
+      "Read the DevWithAI privacy policy to understand how we collect, use, and protect your information.",
+    images: ["https://devwithai.blog/images/default-blog.png"],
   },
 };
 

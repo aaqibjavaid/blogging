@@ -1,3 +1,5 @@
+import fs from "fs";
+import path from "path";
 import { notFound } from "next/navigation";
 import { getPost, getAllPosts } from "../../../../lib/posts.js";
 
@@ -6,6 +8,14 @@ import ArticleContent from "../../../../components/ArticleContent";
 import RelatedArticles from "../../../../components/RelatedArticles";
 
 const BASE_URL = "https://devwithai.blog";
+
+function resolveOgImage(imagePath) {
+  if (imagePath) {
+    const fullPath = path.join(process.cwd(), "public", imagePath);
+    if (fs.existsSync(fullPath)) return `${BASE_URL}${imagePath}`;
+  }
+  return `${BASE_URL}/images/default-blog.png`;
+}
 
 export function generateStaticParams() {
   const posts = getAllPosts();
@@ -17,10 +27,10 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
   const { category, slug } = await params;
-  const fallbackImage = "/images/default-blog.png";
 
   try {
     const post = getPost(category, slug);
+    const ogImage = resolveOgImage(post.frontmatter.image);
 
     return {
       title: post.frontmatter.title,
@@ -35,21 +45,26 @@ export async function generateMetadata({ params }) {
       openGraph: {
         title: post.frontmatter.title,
         description: post.frontmatter.description,
-        images: post.frontmatter.image
-          ? [post.frontmatter.image]
-          : [fallbackImage],
+        url: `${BASE_URL}/blog/${category}/${slug}`,
+        siteName: "DevWithAI",
         type: "article",
         publishedTime: post.frontmatter.date,
         authors: [post.frontmatter.author || "Aaqib Javaid"],
+        images: [
+          {
+            url: ogImage,
+            width: 1200,
+            height: 630,
+            alt: post.frontmatter.title,
+          },
+        ],
       },
 
       twitter: {
         card: "summary_large_image",
         title: post.frontmatter.title,
         description: post.frontmatter.description,
-        images: post.frontmatter.image
-          ? [post.frontmatter.image]
-          : [fallbackImage],
+        images: [ogImage],
       },
     };
   } catch {
@@ -76,9 +91,7 @@ export default async function BlogPost({ params }) {
   };
 
   const articleUrl = `${BASE_URL}/blog/${category}/${slug}`;
-  const imageUrl = post.frontmatter.image
-    ? `${BASE_URL}${post.frontmatter.image}`
-    : `${BASE_URL}/images/default-blog.png`;
+  const imageUrl = resolveOgImage(post.frontmatter.image);
 
   const articleSchema = {
     "@context": "https://schema.org",

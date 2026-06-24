@@ -10,6 +10,14 @@ export const metadata = {
     description:
       "Read the DevWithAI disclaimer. Information on this site is for general informational purposes only.",
     url: "https://devwithai.blog/disclaimer",
+    images: [{ url: "https://devwithai.blog/images/default-blog.png", width: 1200, height: 630, alt: "DevWithAI" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Disclaimer | DevWithAI",
+    description:
+      "Read the DevWithAI disclaimer. Information on this site is for general informational purposes only.",
+    images: ["https://devwithai.blog/images/default-blog.png"],
   },
 };
 

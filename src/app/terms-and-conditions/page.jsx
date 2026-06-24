@@ -10,6 +10,14 @@ export const metadata = {
     description:
       "Read the DevWithAI terms and conditions governing your use of this website and its content.",
     url: "https://devwithai.blog/terms-and-conditions",
+    images: [{ url: "https://devwithai.blog/images/default-blog.png", width: 1200, height: 630, alt: "DevWithAI" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Terms & Conditions | DevWithAI",
+    description:
+      "Read the DevWithAI terms and conditions governing your use of this website and its content.",
+    images: ["https://devwithai.blog/images/default-blog.png"],
   },
 };
 
