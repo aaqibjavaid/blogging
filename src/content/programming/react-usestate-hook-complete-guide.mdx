@@ -1,0 +1,367 @@
+---
+title: "React useState Hook Complete Guide (2026): Syntax, Examples & Best Practices"
+description: "Master the React useState Hook with beginner-friendly examples, syntax, best practices, common mistakes, performance tips, and interview questions for React 19."
+excerpt: "Learn everything about React's useState Hook, including syntax, real-world examples, updating state correctly, best practices, and common mistakes."
+date: "2026-08-04"
+category: "programming"
+slug: "react-usestate-hook-complete-guide"
+readingTime: "22 min read"
+featured: true
+image: "/images/react-usestate-hook-complete-guide.png"
+author: "DevWithAI Editorial"
+---
+
+React introduced **Hooks** to simplify state management and make functional components more powerful. Among all React Hooks, **useState** is the first and most commonly used hook every React developer should master.
+
+Whether you're building a simple counter, a login form, or a large enterprise application, you'll use the `useState` Hook almost every day.
+
+In this guide, you'll learn everything about the React useState Hook, including its syntax, practical examples, best practices, common mistakes, and performance tips.
+
+If you're new to React or preparing for React interviews, this guide will help you build a strong foundation.
+
+---
+
+# What is the React useState Hook?
+
+The **useState Hook** is a built-in React Hook that allows functional components to store and update data over time.
+
+Before Hooks were introduced, only class components could manage state. Since React 16.8, functional components can use Hooks like `useState`, making them cleaner and easier to understand.
+
+State represents data that can change during the lifecycle of a component. When state changes, React automatically re-renders the component to reflect the updated UI.
+
+Some common examples of state include:
+
+- Counter values
+- Form inputs
+- Dark mode toggle
+- Shopping cart items
+- User authentication status
+- API responses
+- Loading indicators
+
+---
+
+# Why use useState?
+
+Without state, React components can only display static content.
+
+Imagine a counter application.
+
+Without state, clicking the increment button wouldn't update the displayed number.
+
+With `useState`, React keeps track of the current value and automatically updates the interface whenever that value changes.
+
+Benefits of using `useState` include:
+
+- Dynamic user interfaces
+- Automatic component re-rendering
+- Simple state management
+- Cleaner functional components
+- Better readability
+- Easier testing
+
+---
+
+# React useState Syntax
+
+The basic syntax is:
+
+```jsx
+const [state, setState] = useState(initialValue);
+```
+
+Let's break this down:
+
+- **state** → The current value.
+- **setState** → Function used to update the value.
+- **initialValue** → The value assigned when the component first renders.
+
+Example:
+
+```jsx
+import { useState } from "react";
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return <h1>{count}</h1>;
+}
+```
+
+Initially, `count` equals `0`.
+
+---
+
+# Understanding the Array Destructuring
+
+Many beginners wonder why square brackets are used.
+
+```jsx
+const [count, setCount] = useState(0);
+```
+
+The `useState` Hook returns an array containing two values:
+
+1. Current state
+2. State updater function
+
+JavaScript array destructuring makes it easy to assign them to variables.
+
+---
+
+# Your First useState Example
+
+Let's build a simple counter.
+
+```jsx
+import { useState } from "react";
+
+export default function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <>
+      <h2>{count}</h2>
+
+      <button onClick={() => setCount(count + 1)}>
+        Increment
+      </button>
+    </>
+  );
+}
+```
+
+How it works:
+
+1. Initial value is `0`.
+2. User clicks the button.
+3. `setCount()` updates the state.
+4. React re-renders the component.
+5. Updated value appears on the screen.
+
+This automatic UI update is one of React's biggest strengths.
+
+---
+
+# Updating State
+
+Updating state is simple.
+
+```jsx
+setCount(10);
+```
+
+React replaces the previous value with the new one.
+
+Example:
+
+```jsx
+const [name, setName] = useState("John");
+
+setName("Alex");
+```
+
+The component immediately re-renders with the updated name.
+
+---
+
+# Multiple State Variables
+
+You don't need to store everything in one object.
+
+Instead of:
+
+```jsx
+const [user, setUser] = useState({
+  name: "",
+  age: 0,
+  city: ""
+});
+```
+
+You can write:
+
+```jsx
+const [name, setName] = useState("");
+const [age, setAge] = useState(0);
+const [city, setCity] = useState("");
+```
+
+Using multiple state variables often improves readability and makes updates simpler.
+
+---
+
+# Working with Strings
+
+```jsx
+const [username, setUsername] = useState("");
+
+<input
+  value={username}
+  onChange={(e) => setUsername(e.target.value)}
+/>
+```
+
+React immediately updates the state whenever the user types.
+
+This is known as a **controlled component**.
+
+---
+
+# Working with Booleans
+
+Boolean state is useful for toggles.
+
+Example:
+
+```jsx
+const [isDark, setIsDark] = useState(false);
+
+<button onClick={() => setIsDark(!isDark)}>
+  Toggle Theme
+</button>
+```
+
+Common use cases include:
+
+- Dark mode
+- Modal visibility
+- Sidebar open/close
+- Login status
+
+---
+
+# Working with Arrays
+
+State can also store arrays.
+
+```jsx
+const [fruits, setFruits] = useState([
+  "Apple",
+  "Orange"
+]);
+```
+
+Adding an item:
+
+```jsx
+setFruits([...fruits, "Banana"]);
+```
+
+Never mutate arrays directly.
+
+Instead of:
+
+```jsx
+fruits.push("Banana");
+```
+
+Always create a new array.
+
+---
+
+# Working with Objects
+
+Objects are also common.
+
+```jsx
+const [user, setUser] = useState({
+  name: "Aaqib",
+  age: 30
+});
+```
+
+Update like this:
+
+```jsx
+setUser({
+  ...user,
+  age: 31
+});
+```
+
+Using the spread operator preserves existing properties while updating only the required field.
+
+---
+
+# Common Beginner Mistakes
+
+### Mutating State
+
+❌ Incorrect
+
+```jsx
+user.age = 31;
+```
+
+✅ Correct
+
+```jsx
+setUser({
+  ...user,
+  age: 31
+});
+```
+
+---
+
+### Forgetting Previous State
+
+Incorrect:
+
+```jsx
+setUser({
+  age: 31
+});
+```
+
+This removes the `name` property.
+
+Correct:
+
+```jsx
+setUser({
+  ...user,
+  age: 31
+});
+```
+
+---
+
+### Updating State Inside Render
+
+Never do this:
+
+```jsx
+setCount(10);
+```
+
+inside the component body.
+
+It creates an infinite render loop.
+
+State updates should happen inside:
+
+- Event handlers
+- Effects
+- Async callbacks
+
+---
+
+# Best Practices
+
+✔ Keep state as small as possible.
+
+✔ Split unrelated state into separate variables.
+
+✔ Never mutate state directly.
+
+✔ Use meaningful variable names.
+
+✔ Store only data that affects rendering.
+
+✔ Prefer primitive values when possible.
+
+✔ Keep components focused on a single responsibility.
+
+---
